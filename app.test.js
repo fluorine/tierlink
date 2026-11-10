@@ -7,17 +7,19 @@ test('editing title, adding, editing, moving and deleting update the address', a
     constructor(){this.children=[];this.value='';this.dataset={};this.style={};this.classList={add(){},remove(){}};this.open=false;}
     append(...items){this.children.push(...items);}
     replaceChildren(...items){this.children=[...items];}
-    setAttribute(){} focus(){} showModal(){this.open=true;} close(){this.open=false;}
+    setAttribute(){} contains(element){return element===this||this.children.some(child=>child.contains(element));} focus(){} showModal(){this.open=true;} close(){this.open=false;}
   }
   const ids=Object.fromEntries(['status','title','board','edit-tier','edit-name','editor-heading','delete','edit-rating','editor','cancel','edit','new','share','link-text','link-dialog','close-link'].map(id=>[id,new Element()]));
   const guide=new Element();
-  globalThis.document={getElementById:id=>ids[id],createElement:()=>new Element(),querySelector:()=>guide,querySelectorAll:()=>[]};
+  const listeners={};
+  globalThis.document={getElementById:id=>ids[id],createElement:()=>new Element(),querySelector:()=>guide,querySelectorAll:()=>[],addEventListener:(type,fn)=>{listeners[type]=fn;}};
   globalThis.location=new URL('https://example.com/tierlink/');
   globalThis.history={replaceState(_a,_b,url){globalThis.location=new URL(url,globalThis.location.href);}};
   globalThis.window={addEventListener(){}};
   globalThis.confirm=()=>true;
   await import('./app.js');
   const snapshot=()=>decode(globalThis.location.hash.slice(4));
+  const inside=new Element();guide.append(inside);guide.open=true;listeners.click({target:inside});assert.equal(guide.open,true);listeners.click({target:ids.board});assert.equal(guide.open,false);
   ids.title.value='My ranking';ids.title.oninput();
   assert.equal(snapshot().title,'My ranking');
   ids.board.children[0].children[2].onclick();ids['edit-name'].value='Coffee';ids.edit.onsubmit({preventDefault(){}});
