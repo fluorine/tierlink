@@ -22,3 +22,6 @@
 
 /* A soft scrim keeps the floating controls readable over any tier color. */
 .floating-actions::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-28px -16px -16px;background:linear-gradient(to bottom,transparent,rgba(15,17,20,.38) 45%,rgba(15,17,20,.72));border-radius:18px}.floating-actions>button,.floating-actions .guide,.floating-actions .guide:not([open]),.floating-actions .guide[open]{background:rgba(38,41,46,.86);border-color:rgba(220,225,230,.25);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 6px 20px rgba(0,0,0,.36)}
+
+/* Keep status messages above the floating action row. */
+#status{bottom:calc(78px + env(safe-area-inset-bottom, 0px))}@media(max-width:650px){#status{bottom:calc(72px + env(safe-area-inset-bottom, 0px))}}
