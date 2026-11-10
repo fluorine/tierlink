@@ -11,3 +11,6 @@
 
 /* Give all three floating actions the same visual weight. */
 .floating-actions>button,.floating-actions .guide,.floating-actions .guide:not([open]),.floating-actions .guide[open]{display:flex;align-items:center;min-height:40px;padding:9px 12px;border:1px solid #555960;border-radius:8px;background:#292c31;color:#eee;font-size:13px;font-weight:650;box-shadow:0 6px 20px #0008}.floating-actions .guide summary{color:inherit;font-size:inherit;font-weight:inherit;white-space:nowrap}.floating-actions .guide:hover{filter:brightness(1.16)}@media(max-width:650px){.floating-actions>button,.floating-actions .guide,.floating-actions .guide:not([open]),.floating-actions .guide[open]{padding:9px;font-size:12px}}@media(max-width:330px){.floating-actions>button,.floating-actions .guide,.floating-actions .guide:not([open]),.floating-actions .guide[open]{padding:9px 6px;font-size:11px}}
+
+/* Leave room to scroll the final tier above the floating actions. */
+.workspace{padding-bottom:calc(76px + env(safe-area-inset-bottom, 0px))}
