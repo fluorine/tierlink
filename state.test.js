@@ -1,0 +1,3 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {fresh,encode,decode} from './state.js';
+test('share snapshot round-trips Unicode, notes, order and every tier',()=>{const s=fresh();s.title='Café 🐈';s.items=['S','A','B','C','D','E','F'].map(tier=>({name:'Español 日本語 '+tier,notes:'<script> & words\nline 2',tier}));assert.deepEqual(decode(encode(s)),s);const copy=decode(encode(s));copy.items[0].name='Remix';assert.notEqual(copy.items[0].name,s.items[0].name);});
+test('invalid or excessive data is rejected',()=>{for(const x of ['bad','',btoa('{"v":2}')])assert.throws(()=>decode(x));assert.throws(()=>encode({...fresh(),items:[{name:'x',notes:'',tier:'Z'}]}));assert.throws(()=>decode('x'.repeat(1000001)));});
