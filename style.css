@@ -28,3 +28,5 @@
 
 /* Show the toast in front of the action bar without blocking input. */
 .floating-actions #status{position:absolute;left:0;right:0;top:auto;bottom:0;width:auto;max-width:none;z-index:10;pointer-events:none}
+
+.guide-content a{color:#d5e9c7;text-underline-offset:3px}.guide-content a:focus-visible{outline:2px solid #c7ec91;outline-offset:3px}
