@@ -25,3 +25,6 @@
 
 /* Keep status messages above the floating action row. */
 #status{bottom:calc(78px + env(safe-area-inset-bottom, 0px))}@media(max-width:650px){#status{bottom:calc(72px + env(safe-area-inset-bottom, 0px))}}
+
+/* Anchor the toast to the actual top edge of the action bar. */
+.floating-actions #status{position:absolute;left:0;right:auto;top:auto;bottom:calc(100% + 18px);width:max-content;max-width:100%;z-index:2;pointer-events:none}
