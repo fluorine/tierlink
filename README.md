@@ -36,3 +36,7 @@ npm test
 ## Deploy your own copy
 
 Enable GitHub Pages in your repository settings and choose **GitHub Actions** as the source. The included workflow tests and deploys the site when changes are pushed to `main`. Tierlink is static: it has no database, accounts, analytics, or backend.
+
+## License
+
+Tierlink is available under the [Zero-Clause BSD license](LICENSE). You can use, modify, and distribute it for any purpose, including commercially, without an attribution requirement.
