@@ -8,7 +8,7 @@ A simple, account-free tier list editor. Open the board, add labels, move them i
 
 1. On your first visit, you'll see examples. Edit them, or choose **New list** to start with an empty board.
 2. Select **+** on a tier, enter a label, and save it. The item goes straight into that tier.
-3. Drag an item to another tier, or select it to change its label, move it, or delete it. The move option works on mobile too.
+3. Drag an item to another tier on desktop or touch screens, or select it to change its label, move it, or delete it. The move option works on mobile too.
 4. Tap or click the title above the board to edit it. Use **Share** at the bottom to copy a link, or select **Create your own** to expand the instructions.
 
 Your draft is saved in your browser when local storage is available.

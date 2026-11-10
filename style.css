@@ -14,3 +14,5 @@
 
 /* Leave room to scroll the final tier above the floating actions. */
 .workspace{padding-bottom:calc(76px + env(safe-area-inset-bottom, 0px))}
+
+.card{touch-action:none}.card.dragging{position:relative;z-index:7;opacity:.8;cursor:grabbing;pointer-events:none}
