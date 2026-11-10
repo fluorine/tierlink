@@ -1,7 +1,38 @@
 # Tierlink
-A dependency-free static tier-list editor. A first visit starts with a few randomly ranked examples; use New list to start blank, or edit the examples. Existing drafts and shared links are preserved. Use the + button on any tier to add an item with a label. Drag cards between S–F tiers, or select a card to rename, delete, or move it to another tier (including on mobile). The floating controls let you rename, share, or start a list; they hide after inactivity and can be reopened with Controls. Use the minus button to hide them immediately. Lists are saved locally as drafts. The address updates as the list changes, and Copy share link copies an independent snapshot encoded as UTF-8 JSON in the URL fragment; recipients can remix and share without modifying the original. No database, analytics, external assets or backend.
 
-## Hosting
-Upload this repository to GitHub, then Settings → Pages → Source → GitHub Actions. The included workflow tests and deploys on pushes to main. All paths are relative for GitHub Pages project URLs. To run locally, serve this directory with any static HTTP server. Run tests with `npm test` (Node 18+).
+A simple, account-free tier list editor. Open the board, add labels, move them into place, and share your ranking with a link.
 
-Older shared links with notes retain them in their data. Links contain all list text and are readable by anyone with the link. Special characters are encoded safely, but link length limits depend on the browser and sharing service. Large lists produce long URLs which some messaging services truncate. Limits: 500 items, 160 characters per item name, 500 per note, 120 per title. Dragging a card appends it to its destination tier. Share links preserve card order.
+**[Try Tierlink](https://fluorine.github.io/tierlink/)**
+
+## Make a list
+
+1. On your first visit, you'll see examples. Edit them, or open **Controls** and choose **New list** to start with an empty board.
+2. Select **+** on a tier, enter a label, and save it. The item goes straight into that tier.
+3. Drag an item to another tier, or select it to change its label, move it, or delete it. The move option works on mobile too.
+4. Open **Controls** to change the title or copy a share link. The panel hides after inactivity; select **Controls** to reopen it. The help at the bottom can be expanded or collapsed.
+
+Your draft is saved in your browser when local storage is available.
+
+## Share and remix
+
+The address updates as you edit. Copy it from your browser or use **Copy share link** to share a snapshot. Someone opening the link can edit their own version and share a new link without changing yours.
+
+The link contains the list itself, including its title and labels. Anyone with the link can read it, so don't include anything you want to keep private. Special characters are encoded safely. Very large lists produce long links, which some browsers or messaging apps may truncate. The editor supports up to 500 items, 160 characters per label, and 120 characters for the title. Older links containing notes keep that data, although notes no longer appear in the editor.
+
+## Run locally
+
+No build or dependencies are needed for the editor. From this folder, start a static server, for example:
+
+```sh
+python -m http.server 8000
+```
+
+Open `http://localhost:8000`. To run the tests, install Node.js 18 or later and run:
+
+```sh
+npm test
+```
+
+## Deploy your own copy
+
+Enable GitHub Pages in your repository settings and choose **GitHub Actions** as the source. The included workflow tests and deploys the site when changes are pushed to `main`. Tierlink is static: it has no database, accounts, analytics, or backend.
